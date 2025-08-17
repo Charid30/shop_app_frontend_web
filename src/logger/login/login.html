@@ -1,0 +1,49 @@
+<div class="page-container">
+  <div class="welcome-section">
+    <h1>Bienvenue sur Aliexpresse</h1>
+    <p>Découvrez des milliers de produits à prix imbattables.<br>
+    Connectez-vous pour profiter de toutes nos offres exclusives !</p>
+  </div>
+  <div class="login-container">
+    <h2>Connexion à Shop</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" autocomplete="off">
+      <div class="form-group">
+        <label for="email">Adresse e-mail</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="Entrez votre e-mail"
+          required
+          [(ngModel)]="email"
+          #emailInput="ngModel"
+          [class.invalid]="emailInput.invalid && emailInput.touched"
+        />
+        <div class="error" *ngIf="emailInput.invalid && emailInput.touched">
+          Veuillez entrer une adresse e-mail valide.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="Entrez votre mot de passe"
+          required
+          minlength="6"
+          [(ngModel)]="password"
+          #passwordInput="ngModel"
+          [class.invalid]="passwordInput.invalid && passwordInput.touched"
+        />
+        <div class="error" *ngIf="passwordInput.invalid && passwordInput.touched">
+          Le mot de passe doit contenir au moins 6 caractères.
+        </div>
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>
+    </form>
+    <div class="register-link">
+      Pas encore de compte ?
+      <a routerLink="/register">Créer un compte</a>
+    </div>
+  </div>
