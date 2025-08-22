@@ -1,13 +1,24 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Login } from "../logger/login/login";
+import { Footer } from "../logger/footer/footer";
+import { Navbar } from "../logger/navbar/navbar";
+import { UserService } from '../services/user.service';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login],
+  imports: [RouterOutlet, Footer, Navbar, CommonModule, NgIf],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('shop_project');
+export class App implements OnInit {
+  isAuthenticated = signal(false);
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.userService.isLoggedIn$.subscribe(status => {
+      this.isAuthenticated.set(status);
+    });
+  }
 }

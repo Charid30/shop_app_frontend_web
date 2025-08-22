@@ -1,164 +1,94 @@
-.page-container {
-  min-height: 100vh;
-  display: flex;
-  background: linear-gradient(90deg, #f1f5f9 60%, #fff 100%);
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-}
-
-.welcome-section {
-  flex: 1.2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0 3rem 0 6vw;
-  background: linear-gradient(120deg, #6366f1 0%, #3b82f6 100%);
-  color: #fff;
-  border-top-right-radius: 2.5rem;
-  border-bottom-right-radius: 2.5rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
-}
-
-.welcome-section h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 1.2rem;
-  letter-spacing: 0.03em;
-}
-
-.welcome-section p {
-  font-size: 1.25rem;
-  font-weight: 400;
-  opacity: 0.95;
-}
-
+/* Centrage du conteneur */
 .login-container {
-  flex: 1;
-  max-width: 420px;
-  margin: auto 6vw auto auto;
-  padding: 2.5rem 2rem 2rem 2rem;
-  background: #fff;
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-.login-container h2 {
-  margin-bottom: 2rem;
-  color: #1a202c;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+/* Animation d’apparition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+/* Titre */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Champs du formulaire */
 .form-group {
-  width: 100%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
-  margin-bottom: 0.5rem;
-  color: #374151;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 0.75rem;
-  background: #f9fafb;
-  font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  outline: none;
-}
-
-input[type="email"]:focus,
-input[type="password"]:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 2px #6366f133;
-}
-
-input.invalid {
-  border-color: #ef4444;
-  background: #fef2f2;
-}
-
-.error {
-  color: #ef4444;
-  font-size: 0.95rem;
-  margin-top: 0.3rem;
   font-weight: 500;
-  letter-spacing: 0.01em;
+  margin-bottom: 6px;
+  color: #34495e;
 }
 
-button[type="submit"] {
+input {
   width: 100%;
-  padding: 0.95rem;
-  background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 700;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  background: #fdfdfd;
+}
+
+input:focus {
+  border-color: #007acc;
+  box-shadow: 0 0 8px rgba(0, 122, 204, 0.2);
+  background: #fff;
+}
+
+/* Bouton */
+button {
+  width: 100%;
+  padding: 14px;
   border: none;
-  border-radius: 0.75rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #007acc, #005b99);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  margin-top: 0.5rem;
-  box-shadow: 0 2px 8px 0 rgba(99, 102, 241, 0.08);
+  transition: background 0.3s ease, transform 0.2s;
 }
 
-button[type="submit"]:hover:not(:disabled) {
-  background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
-  transform: translateY(-2px) scale(1.02);
+button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #005b99, #003f66);
+  transform: translateY(-2px);
 }
 
-button[type="submit"]:disabled {
-  background: #d1d5db;
-  color: #9ca3af;
+button:disabled {
+  background: #ccc;
   cursor: not-allowed;
 }
 
-.register-link {
-  margin-top: 2rem;
-  font-size: 1rem;
-  color: #6b7280;
+/* Messages d'erreur */
+.error {
+  font-size: 13px;
+  color: #e74c3c;
+  margin-top: 5px;
+}
+
+.error-message {
+  margin-top: 20px;
   text-align: center;
-}
-
-.register-link a {
-  color: #6366f1;
-  font-weight: 600;
-  text-decoration: none;
-  margin-left: 0.3rem;
-  transition: color 0.2s;
-}
-
-.register-link a:hover {
-  color: #3b82f6;
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .page-container {
-    flex-direction: column;
-    background: #f1f5f9;
-  }
-  .welcome-section {
-    border-radius: 0;
-    align-items: center;
-    padding: 2rem 1rem;
-    min-height: 180px;
-    width: 100%;
-    text-align: center;
-  }
-  .login-container {
-    margin: 2rem auto;
-    border-radius: 1rem;
-  }
+  font-size: 14px;
+  color: #e74c3c;
+  font-weight: 500;
 }

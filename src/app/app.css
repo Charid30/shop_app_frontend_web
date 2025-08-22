@@ -1,0 +1,24 @@
+.main {
+    height: 100%;
+    display: table;
+    width: 100%;
+  }
+  
+  .container {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+  
+  footer {
+    display: table-row;
+    height: 70px;
+    background-color: green;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* background-color: #f8f9fa; */
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+}

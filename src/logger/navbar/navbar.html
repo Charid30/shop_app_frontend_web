@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<div class="navbar">
+  <div class="logo">
+    <img src="assets/logo.png" alt="Logo" />
+  </div>
+
+  <div class="menu-toggle" (click)="toggleMenu()">
+    &#9776;
+  </div>
+
+  <div class="menu" [class.active]="menuOpen">
+    <ul>
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/products">Products</a></li>
+      <li><a routerLink="/cart">Cart</a></li>
+      <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
+    </ul>
+  </div>
+
+  <div class="user-info" *ngIf="isLoggedIn">
+    <span>Welcome, {{ userService.getUsername() }}</span>
+    <img src="assets/user-icon.png" alt="User Icon" />
+  </div>
+</div>
